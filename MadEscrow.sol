@@ -105,7 +105,7 @@ contract VeoEscrow {
   }
 
   // Constructor
-  constructor(MadEscrow) public {
+  constructor(VeoEscrow) public {
     finalized = false;
     initiated = false;
     createdBlock = block.number;
@@ -213,7 +213,7 @@ contract VeoEscrow {
     // protect the buyer from seller attempting to finalize prior to sending 
     // deliverable or having not funded their excess escrow requirement.
     if (finalized == true) {
-        emit EscrowComplete(finalized)
+        emit EscrowComplete(finalized);
         partyB.transfer(fundedAmount[partyA]);
         partyA.transfer(fundedAmount[partyB]);
         selfdestruct(partyB);
