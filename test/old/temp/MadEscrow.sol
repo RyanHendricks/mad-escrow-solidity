@@ -105,7 +105,7 @@ contract VeoEscrow {
   }
 
   // Constructor
-  constructor(VeoEscrow) public {
+  function VeoEscrow() public {
     finalized = false;
     initiated = false;
     createdBlock = block.number;
